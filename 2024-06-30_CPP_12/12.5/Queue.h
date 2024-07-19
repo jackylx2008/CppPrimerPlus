@@ -2,6 +2,7 @@
 #ifndef QUEUE_H_
 #define QUEUE_H_
 #include <cstdint>
+#include <ostream>
 // This queue will contain Customer items class Customer
 class Customer {
   private:
@@ -14,6 +15,7 @@ class Customer {
     void set(int32_t when);
     int32_t when() const { return arrive; }
     int ptime() const { return processtime; }
+    friend std::ostream &operator<<(std::ostream &os, const Customer &customer);
 };
 
 typedef Customer Item;
@@ -37,12 +39,13 @@ class Queue {
     Queue &operator=(const Queue &q) { return *this; }
 
   public:
-    explicit Queue(int qs = Q_SIZE);
+    explicit Queue(int qs);
     ~Queue();
     bool isempty() const;
     bool isfull() const;
     int queuecount() const;
     bool enqueue(const Item &item);
     bool dequeue(Item &item);  // remove item from front
+    void show() const;
 };
 #endif
