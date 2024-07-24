@@ -42,4 +42,3 @@ class BrassPlus : public Brass {
 };
 
 #endif  // !__BRASS_H__
-#define __BRASS_H__
