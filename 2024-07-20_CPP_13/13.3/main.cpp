@@ -1,14 +1,21 @@
+#include <iostream>
+
 #include "./dma.h"
 
-int main(int argc, char *argv[]) {
-    baseDMA bd1;
-    baseDMA bd2("liu", 1);
-    baseDMA bd3(bd2);
-    bd1.View();
-    bd2.View();
-    bd1 = bd2;
-    bd1.View();
-    bd3.View();
+static const int SIZE = 4;
+
+int main(int argc, char* argv[]) {
+    Dma_ABC* p_dma[SIZE];
+
+    char* temp_char = new char[100];
+    int temp_int = 0;
+
+    for (int i = 0; i < SIZE; i++) {
+        std::cout << "Label :";
+        std::cin >> temp_char;
+    }
+
+    delete[] temp_char;
 
     return 0;
 }
