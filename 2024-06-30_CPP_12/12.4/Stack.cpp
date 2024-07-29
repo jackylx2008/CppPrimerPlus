@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "./Stack.h"
 
 Stack::Stack(int n) {
@@ -16,9 +14,7 @@ Stack::Stack(const Stack &st) {
     }
 }
 Stack::~Stack() {
-    if (!pitems) {
-        delete[] pitems;
-    }
+    delete[] pitems;
 }
 bool Stack::isempty() const {
     return top < 0;

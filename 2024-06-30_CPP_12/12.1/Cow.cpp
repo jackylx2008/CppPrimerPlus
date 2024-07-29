@@ -6,12 +6,17 @@
 
 Cow::Cow() {
     name[0] = '\0';
-    hobby = new char[1];
-    hobby[0] = '\0';
+    // hobby = new char[1];
+    // hobby[0] = '\0';
+    hobby = nullptr;
     weight = 0.0;
 }
 Cow::Cow(const char* nm, const char* ho, double wt) {
-    strcpy(name, nm);
+    strncpy(name, nm, 19);
+    if (strlen(nm) > 20) {
+        name[19] = '\0';
+    }
+    // strcpy(name, nm);
     hobby = new char[strlen(ho) + 1];
     strcpy(hobby, ho);
     weight = wt;
@@ -23,19 +28,21 @@ Cow::Cow(const Cow& c) {
     weight = c.weight;
 }
 Cow::~Cow() {
-    delete[] hobby;
+    if (hobby != nullptr) delete[] hobby;
 }
 Cow& Cow::operator=(const Cow& c) {
+    if (this == &c) return *this;
     strcpy(name, c.name);
-    if (hobby != nullptr) {
-        std::cout << "operator=() delete old hobby" << std::endl;
-        delete[] hobby;
-    }
+    delete[] hobby;
     hobby = new char[strlen(c.hobby) + 1];
     strcpy(hobby, c.hobby);
     weight = c.weight;
     return *this;
 }
 void Cow::ShowCow() const {
-    std::cout << name << " : " << hobby << " weight = " << weight << std::endl;
+    if (hobby != nullptr)
+        std::cout << name << " : " << hobby << " weight = " << weight
+                  << std::endl;
+    else
+        std::cout << name << " : " << " weight = " << weight << std::endl;
 }

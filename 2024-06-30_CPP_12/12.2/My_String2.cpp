@@ -1,3 +1,4 @@
+#include <cctype>
 #include <cstring>
 #include <iostream>
 #include <ostream>
@@ -46,9 +47,10 @@ My_String2& My_String2::operator+(const My_String2& s) {
     len = len_s1 + len_s2;
     char* temp = new char[len + 1];
     strcpy(temp, str);
-    for (int i = len_s1; i < len; i++) {
-        temp[i] = s[i - len_s1];
-    }
+    // for (int i = len_s1; i < len; i++) {
+    //     temp[i] = s[i - len_s1];
+    // }
+    strcat(temp, s.str);
     delete[] str;
     str = new char[len + 1];
     str[len + 1] = '\0';
@@ -90,16 +92,18 @@ bool My_String2::operator==(const My_String2& s) {
 }
 void My_String2::stringup() {
     for (int i = 0; i < len; i++) {
-        if (str[i] >= 'a' && str[i] <= 'z') {
-            str[i] -= 32;
-        }
+        // if (str[i] >= 'a' && str[i] <= 'z') {
+        //     str[i] -= 32;
+        // }
+        str[i] = toupper(str[i]);
     }
 }
 void My_String2::stringlow() {
     for (int i = 0; i < len; i++) {
-        if (str[i] >= 'A' && str[i] <= 'Z') {
-            str[i] += 32;
-        }
+        // if (str[i] >= 'A' && str[i] <= 'Z') {
+        //     str[i] += 32;
+        // }
+        str[i] = tolower(str[i]);
     }
 }
 int My_String2::has(const char c) {
