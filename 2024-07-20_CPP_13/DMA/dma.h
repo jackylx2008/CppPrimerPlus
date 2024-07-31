@@ -12,8 +12,7 @@ class BaseDma {
     explicit BaseDma(const char *s = "", int n = 0);
     BaseDma(const BaseDma &ba);
     BaseDma &operator=(const BaseDma &ba);
-    virtual ~BaseDma() {
-    }
+    virtual ~BaseDma();
     friend std::ostream &operator<<(std::ostream &os, const BaseDma &ba);
 };
 

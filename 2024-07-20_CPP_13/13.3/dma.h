@@ -10,7 +10,7 @@ class Dma_ABC {
     Dma_ABC(const Dma_ABC &dma);
     virtual ~Dma_ABC();
     Dma_ABC &operator=(const Dma_ABC &dma);
-    virtual void View() const;
+    virtual void View() const = 0;
 };
 
 class baseDMA : public Dma_ABC {
@@ -19,7 +19,7 @@ class baseDMA : public Dma_ABC {
     explicit baseDMA(const char *l = "null", int r = 0);
     baseDMA(const baseDMA &bd);
     virtual ~baseDMA();
-    virtual baseDMA &operator=(const baseDMA &bd);
+    baseDMA &operator=(const baseDMA &bd);
     virtual void View() const;
 };
 
@@ -32,7 +32,7 @@ class lacksDMA : public Dma_ABC {
                       const char *c = "null");
     lacksDMA(const lacksDMA &ld);
     virtual ~lacksDMA();
-    virtual lacksDMA &operator=(const lacksDMA &ld);
+    lacksDMA &operator=(const lacksDMA &ld);
     virtual void View() const;
 };
 
@@ -43,7 +43,7 @@ class hasDMA : public Dma_ABC {
   public:
     explicit hasDMA(const char *l = "null", int r = 0, const char *s = "null");
     hasDMA(const hasDMA &hd);
-    virtual hasDMA &operator=(const hasDMA &hd);
+    hasDMA &operator=(const hasDMA &hd);
     virtual ~hasDMA();
     virtual void View() const;
 };
