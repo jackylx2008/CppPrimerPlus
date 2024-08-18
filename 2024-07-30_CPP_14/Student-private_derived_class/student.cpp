@@ -26,7 +26,7 @@ std::istream& getline(std::istream& is, Student& s) {
     return is;
 }
 std::ostream& Student::show_Scores(std::ostream& os) const {
-    os << "Name: " << (const std::string&)*this;
+    os << "Name: " << (const std::string&)(*this);
     os << " Scores:";
     if (std::valarray<double>::size() > 0) {
         for (int i = 0; i < std::valarray<double>::size(); i++) {
