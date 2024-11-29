@@ -32,8 +32,8 @@ class Wine {
     int* bottles;
 
   public:
-    Wine(const char* str, int y);
-    Wine(const char* str, int y, const int yr[], const int bot[]);
+    Wine(const std::string str, int y);
+    Wine(const std::string str, int y, const int yr[], const int bot[]);
     // Wine(const Wine&);
     // Wine& operator=(const Wine&);
     ~Wine() {

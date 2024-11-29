@@ -14,17 +14,16 @@ int Pair<T1, T2>::Bottles(int i) const {
 }
 
 const int temp[1] = {0};
-Wine::Wine(const char* str, int y)
-    : years_bottles(Pair<ArrayInt, ArrayInt>(0, temp, temp)) {
-    name = str;
-    years = y;
+
+Wine::Wine(const std::string str, int y)
+    : name(str),
+      years(y),
+      years_bottles(Pair<ArrayInt, ArrayInt>(0, temp, temp)) {
     year = new int[y];
     bottles = new int[y];
 }
-Wine::Wine(const char* str, int y, const int yr[], const int bot[])
-    : years_bottles(Pair<ArrayInt, ArrayInt>(y, yr, bot)) {
-    name = str;
-    years = y;
+Wine::Wine(const std::string str, int y, const int yr[], const int bot[])
+    : name(str), years(y), years_bottles(Pair<ArrayInt, ArrayInt>(y, yr, bot)) {
     year = nullptr;
     bottles = nullptr;
 }
@@ -50,7 +49,7 @@ void Wine::GetBottles() {
     std::cout << "Enter " << name << "data for " << years
               << "year(s):" << std::endl;
     for (int i = 0; i < years; i++) {
-        std::cout << "Ener year: ";
+        std::cout << "Enter year: ";
         std::cin >> year[i];
         std::cout << "Enter bottles for that year: ";
         std::cin >> bottles[i];
